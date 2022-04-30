@@ -10,29 +10,33 @@ public class Database {
     private static final String USER = "postgres";
     private static final String PASSWORD = "password";
     private static Connection connection = null;
-    private Database() {}
+
+    private Database() {
+    }
+
     public static Connection getConnection() {
         //TODO
 
-       /** try {
-            Class.forName("org.postgresql.Driver");
-            connection= DriverManager.getConnection(URL,"postgres","parola");
-            connection.setAutoCommit(false);
+        /** try {
+         Class.forName("org.postgresql.Driver");
+         connection= DriverManager.getConnection(URL,"postgres","parola");
+         connection.setAutoCommit(false);
 
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }*/
-       if (connection==null)
-       createConnection();
+         } catch (ClassNotFoundException e) {
+         e.printStackTrace();
+         } catch (SQLException e) {
+         e.printStackTrace();
+         }*/
+        if (connection == null)
+            createConnection();
 
         return connection;
     }
+
     private static void createConnection() {
         try {
             Class.forName("org.postgresql.Driver");
-            connection= DriverManager.getConnection(URL,"postgres","parola");
+            connection = DriverManager.getConnection(URL, "postgres", "parola");
             connection.setAutoCommit(false);
 
         } catch (ClassNotFoundException e) {
@@ -42,7 +46,13 @@ public class Database {
         }
 
     }
+
     public static void closeConnection() {
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         //TODO
     }
 
