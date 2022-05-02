@@ -1,4 +1,6 @@
-package databases;
+package daos;
+
+import databases.Database;
 
 import java.sql.*;
 

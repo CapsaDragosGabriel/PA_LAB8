@@ -1,8 +1,7 @@
 package tools;
 
-import databases.City;
+import model.City;
 
-import java.util.*;
 import java.lang.*;
 
 public class DistanceGFG {

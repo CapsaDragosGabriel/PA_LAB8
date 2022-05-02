@@ -1,7 +1,10 @@
+import daos.CityDAO;
+import daos.ContinentDAO;
+import daos.CountryDAO;
 import databases.*;
+import model.City;
 import tools.DistanceGFG;
 import tools.Loader;
-import tools.DistanceGFG;
 
 import java.sql.SQLException;
 import java.util.Random;
@@ -80,13 +83,8 @@ public class Compulsory {
             while (secondCityId == firstCityId) secondCityId = obj.getRandomNumber(1, obj.maxCities);
             obj.getDistances(firstCityId, secondCityId);
         }
+            Database.closeConnection();
 
-
-        try {
-            Database.getConnection().close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
 
     }
 

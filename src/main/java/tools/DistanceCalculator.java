@@ -1,6 +1,6 @@
 package tools;
 
-import databases.City;
+import model.City;
 
 import java.lang.Math;
 

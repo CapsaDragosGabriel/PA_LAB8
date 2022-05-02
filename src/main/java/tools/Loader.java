@@ -1,7 +1,7 @@
 package tools;
 
-import databases.City;
-import databases.CityDAO;
+import model.City;
+import daos.CityDAO;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.openxml4j.opc.OPCPackage;
 import org.apache.poi.ss.usermodel.Cell;
@@ -83,7 +83,6 @@ public class Loader {
 //creating a Sheet object to retrieve the object
         XSSFSheet sheet = wb.getSheetAt(0);
 //evaluating cell type
-        FormulaEvaluator formulaEvaluator = wb.getCreationHelper().createFormulaEvaluator();
         int skipHeader = 1;
         for (Row row : sheet)     //iteration over row using for each loop
         {

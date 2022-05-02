@@ -15,18 +15,7 @@ public class Database {
     }
 
     public static Connection getConnection() {
-        //TODO
 
-        /** try {
-         Class.forName("org.postgresql.Driver");
-         connection= DriverManager.getConnection(URL,"postgres","parola");
-         connection.setAutoCommit(false);
-
-         } catch (ClassNotFoundException e) {
-         e.printStackTrace();
-         } catch (SQLException e) {
-         e.printStackTrace();
-         }*/
         if (connection == null)
             createConnection();
 
@@ -53,9 +42,13 @@ public class Database {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        //TODO
     }
 
     public static void rollback() {
+        try {
+            connection.rollback();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
